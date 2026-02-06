@@ -12,10 +12,10 @@ public class Main {
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 
-		Employee e = new Employee(6,"JayNarayan Thakur","JayNarayanksp011@gmail.com","8271433469",45456565);
+		Employee e = new Employee(1,"Rahul Kumar","rahulkusaiya456@gmail.com","6204923300",30000);
 		EmployeeDao empDao = new EmployeeDaoimpl();
 		
-		// This is for the Creation of the Table if Doesn't Exist in the database
+//		------------------------------------------------------ Creation of the Table -------------------------------
 //		empDao.creatingEmployeeTable();
 		
 		//Employee Save Method
@@ -25,7 +25,7 @@ public class Main {
 //		empDao.updateEmployee(e);
 		
 		// Delete employee by id
-//		empDao.deleteAnEmployee(2);
+//		empDao.deleteAnEmployee(3);
 		
 		
 		// PrintAll Employee at a time
@@ -50,9 +50,9 @@ public class Main {
 		
 		
 		// Get EmployeeByName
-//		System.out.println(empDao.getEmpByName("Rahul thakur"));
+//		System.out.println(empDao.getEmpByName("Rahul Kumar"));
 		//or
-		Employee emp = empDao.getEmpByName("Rahul thakur");
+		Employee emp = empDao.getEmpByName("Rahul Kumar");
 		System.out.println(emp);
 		
 	}
