@@ -34,9 +34,7 @@ public class EmployeeDaoimpl implements EmployeeDao  {
 	@Override
 	public void creatingEmployeeTable() throws SQLException {
 		
-		Statement statement = connection.createStatement();
-		statement.executeUpdate("CREATE TABLE IF NOT EXISTS employee(empId INT PRIMARY KEY, name VARCHAR(100),email VARCHAR(100),contact BIGINT,salary DOUBLE)");
-		System.out.println("Table created successfully (if not already exists).");
+		
 	}
 
 	@Override
