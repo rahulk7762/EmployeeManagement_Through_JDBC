@@ -23,5 +23,7 @@ public interface EmployeeDao {
 
 	public Employee getEmpByName(String name)throws SQLException;
 
+	public Employee getEmpByNameSQL(String name) throws SQLException;
+
 
 }

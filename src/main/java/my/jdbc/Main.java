@@ -1,7 +1,6 @@
 package my.jdbc;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import my.jdbc.dao.EmployeeDao;
 import my.jdbc.dao.EmployeeDaoimpl;
@@ -52,8 +51,26 @@ public class Main {
 		// Get EmployeeByName
 //		System.out.println(empDao.getEmpByName("Rahul Kumar"));
 		//or
-		Employee emp = empDao.getEmpByName("Rahul Kumar");
+//		Employee emp = empDao.getEmpByName("Rahul Kumar");
+//		System.out.println(emp);
+		
+		
+		
+//		SQL INJETION 
+		
+		
+		
+		// Get EmployeeByName
+//		System.out.println(empDao.getEmpByName("Rahul Kumar"));
+		//or
+//		Employee emp = empDao.getEmpByNameSQL("Rahul kumar");
+//		Employee emp = empDao.getEmpByNameSQL("Rahul");
+		Employee emp = empDao.getEmpByNameSQL("Rahul' OR '1'='1");
 		System.out.println(emp);
+		
+		
+		
+		
 		
 	}
 

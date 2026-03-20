@@ -2,7 +2,6 @@ package my.jdbc.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,6 +27,7 @@ public class EmployeeDaoimpl implements EmployeeDao  {
 	public static final String UPDATE_QUERY = "update employee set name = '%s' , email = '%s', contact = '%s', salary = %d where empId = %d";
 	public static final String DELETE_QUERY = "delete from employee where empId=%d";
 	public static final String SELECT_BY_NAME_QUERY = "SELECT * FROM employee where name = '%s'";
+	public static final String SELECT_BY_NAME_QUERY_SQL_INJECTION  = "SELECT * FROM employee where name = '%s'";
 	
 	
 	
@@ -123,6 +123,20 @@ public class EmployeeDaoimpl implements EmployeeDao  {
 	public Employee getEmpByName(String name) throws SQLException {
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(String.format(SELECT_BY_NAME_QUERY,name));
+		resultSet.next();
+		Employee e = new Employee();
+		e.setId(resultSet.getInt(1));
+		e.setName(resultSet.getString(2));
+		e.setEmail(resultSet.getString(3));
+		e.setContact(resultSet.getString(4));
+		e.setSalary(resultSet.getInt(5));
+		return e;
+	}
+	
+	@Override
+	public Employee getEmpByNameSQL(String name) throws SQLException {
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery(String.format(SELECT_BY_NAME_QUERY_SQL_INJECTION,name));
 		resultSet.next();
 		Employee e = new Employee();
 		e.setId(resultSet.getInt(1));
